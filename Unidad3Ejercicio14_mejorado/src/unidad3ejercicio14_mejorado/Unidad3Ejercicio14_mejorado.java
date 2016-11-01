@@ -22,11 +22,14 @@ public class Unidad3Ejercicio14_mejorado {
     public static void main(String[] args) {
         
         int liminf=1500, limsup=2017;
+        int mes=pedirMes();
+        int anyo=pedirAnyo(liminf, limsup);
        
-        System.out.println("El mes es correcto: "+pedirMes());
+        System.out.println("El MES es correcto: "+mes);
         
-        System.out.println("El año es correcto: "+pedirAnyo(liminf, limsup));      
+        System.out.println("El AÑO es correcto: "+anyo);      
         
+        pedirDia(mes, anyo);
         
     }
     
@@ -78,5 +81,73 @@ public class Unidad3Ejercicio14_mejorado {
         
     }
     
+    public static void pedirDia (int mes, int anyo){
+        
+        Scanner tcl=new Scanner (System.in);
+        
+        int dia;
+        
+        
+       
+            System.out.print("Introduce dia: ");
+            dia=tcl.nextInt();
+        
+        
+            if((esBisiesto(anyo))&&(mes==2)){
+                if((dia<0)||(dia>29)){
+                    System.out.println("El dia es incorrecto");
+
+                }else{
+                    System.out.println("Fecha actual: "+dia+"/"+mes+"/"+anyo+" año bisiesto");
+                }
+
+
+            }else{
+                if((mes==1)||(mes==3)||(mes==5)||(mes==7)||(mes==8)||(mes==10)||(mes==12)){
+                    if((dia<0)||(dia>31)){
+                        System.out.println("El dia es incorrecto");
+                    }else{
+                        System.out.println("Fecha actual: "+dia+"/"+mes+"/"+anyo);
+                    }
+                    
+                }else if((mes==4)||(mes==6)||(mes==9)||(mes==11)){
+                    if((dia<0)||(dia>30)){
+                        System.out.println("El dia es incorrecto");
+                    }else{
+                        System.out.println("Fecha actual: "+dia+"/"+mes+"/"+anyo);
+                    }
+                    
+                }else{
+                    if((dia<0)||(dia>28)){
+                        System.out.println("El dia es incorrecto");
+                    }else{
+                        System.out.println("Fecha actual: "+dia+"/"+mes+"/"+anyo);
+                    }
+                    
+                }
+
+            }
+        
+        
+        
+        
+        
+        
+    }
     
+     public static boolean esBisiesto (int anyo){
+        
+        int ope, ope2, ope3;
+        
+        ope=anyo%4;
+        ope2=anyo%100;
+        ope3=anyo%400;
+                
+        if((ope==0)&&(ope2!=0)||(ope3==0)){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 }
