@@ -20,10 +20,12 @@ public class Unidad3Ejercicio14_mejorado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        int liminf=1500, limsup=2017;
        
         System.out.println("El mes es correcto: "+pedirMes());
         
-        // a ver como se sigue esto       
+        System.out.println("El año es correcto: "+pedirAnyo(liminf, limsup));      
         
         
     }
@@ -36,21 +38,44 @@ public class Unidad3Ejercicio14_mejorado {
         
         do{
 
-        System.out.print("Introduce un mes: ");
-        mes=tcl.nextInt();
-        
-        if ((mes>12)||(mes<0)){
-            System.out.println("Mes incorrecto, el mes tiene que ser entre 1 y 12");
-        }else{
-            
-        }
-            
+            System.out.print("Introduce un mes: ");
+            mes=tcl.nextInt();
+
+            if ((mes>12)||(mes<0)){
+                System.out.println("Mes incorrecto, el mes tiene que ser entre 1 y 12");
+            }else{
+
+            }            
        
         }while((mes>12)||(mes<0));
        
+        return mes;     
+    }
+    
+    public static int pedirAnyo (int liminf, int limsup){
+        
+        Scanner tcl=new Scanner (System.in);  
+        
+        int anyo;
+        
+        do{
+        
+        System.out.print("Introduce un año entre 1500 y 2017: ");
+        anyo=tcl.nextInt();
+        
+            if ((anyo<liminf)||(anyo>limsup)){
+                System.out.println("Año fuera de parametros");
+            }else{
 
-        return mes;
-     
+            }      
+        
+        
+        }while((anyo<liminf)||(anyo>limsup));
+        
+        
+        return anyo;
+        
+        
     }
     
     
